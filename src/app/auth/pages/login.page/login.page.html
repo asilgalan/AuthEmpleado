@@ -1,0 +1,49 @@
+<form
+  class="max-w-md mx-auto space-y-6 bg-white p-6 rounded-lg shadow-md"
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+>
+  <!-- Campo Email -->
+  <div>
+    <label for="userName" class="block text-sm font-medium text-gray-700">Email</label>
+    <input
+      type="text"
+      formControlName="userName"
+      id="userName"
+      placeholder="Ingresa tu email"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+    />
+  </div>
+
+  <!-- Campo Contraseña -->
+  <div>
+    <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+    <input
+      type="password"
+      formControlName="password"
+      id="password"
+      placeholder="Ingresa tu contraseña"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+    />
+    <div class="mt-2 text-sm text-right">
+      <a href="#" class="text-indigo-600 hover:text-indigo-500 font-medium"
+        >¿Olvidaste tu contraseña?</a
+      >
+    </div>
+  </div>
+
+  <!-- Botón de envío -->
+  <div>
+    <button
+      type="submit"
+      class="w-full flex justify-center items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    >
+      Iniciar Sesión
+    </button>
+  </div>
+
+  <!-- Mensaje de error -->
+  @if (hasError()) {
+  <div class="text-red-600 text-sm text-center">Hubo un error al iniciar sesión</div>
+  }
+</form>

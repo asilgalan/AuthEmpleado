@@ -1,0 +1,28 @@
+<button (click)="logout()">Logout</button>
+<div class="space-y-2 p-4 bg-white rounded shadow">
+  <div class="text-lg font-semibold text-gray-800">Apellido: {{ empleado()!.apellido }}</div>
+  <div class="text-gray-700">Oficio: {{ empleado()!.oficio }}</div>
+  <div class="text-gray-700">Salario: {{ empleado()!.salario | currency : 'EUR' }}</div>
+
+  <button
+    (click)="subordinado()"
+    class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-500 transition"
+  >
+    Ver Subordinados
+  </button>
+</div>
+
+<!-- Lista de subordinados -->
+@if (bandera()) { @if(empleados().length <=0){
+
+<h1>No tiene subordinados</h1>
+} @else{
+<div class="mt-6 space-y-4">
+  @for (emple of empleados(); track $index) {
+  <div class="p-4 bg-gray-100 rounded shadow-sm">
+    <div class="text-sm text-gray-800">Director: {{ emple!.director }}</div>
+    <div class="text-sm text-gray-700">Salario: {{ emple!.salario | currency : 'EUR' }}</div>
+  </div>
+  }
+</div>
+} }
